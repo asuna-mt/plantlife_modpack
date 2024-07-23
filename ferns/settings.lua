@@ -16,9 +16,9 @@
 abstract_ferns.config = {}
 
 -- Which plants should generate/spawn?
-abstract_ferns.config.enable_lady_fern			= true
+abstract_ferns.config.enable_lady_fern			= false
 abstract_ferns.config.enable_horsetails			= true
-abstract_ferns.config.enable_treefern			= true
+abstract_ferns.config.enable_treefern			= false
 abstract_ferns.config.enable_giant_treefern		= true
 
 -- Where should they generate/spawn? (if they generate/spawn)

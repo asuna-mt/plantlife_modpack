@@ -330,55 +330,22 @@ minetest.register_abm({
 -- GENERATE GIANT TREE FERN
 -----------------------------------------------------------------------------------------------
 
--- in jungles
-if abstract_ferns.config.enable_giant_treeferns_in_jungle == true then
-	biome_lib.register_on_generate({
-		surface = {
-			"default:dirt_with_grass",
-			"default:dirt_with_rainforest_litter", -- minetest >= 0.4.16
-			"default:sand",
-			"default:desert_sand"--,
-			--"dryplants:grass_short"
-		},
-		max_count = 12,--27,
-		avoid_nodes = {"group:tree"},
-		avoid_radius = 3,--4,
-		rarity = 85,
-		seed_diff = 329,
-		min_elevation = 1,
-		near_nodes = {"default:jungletree"},
-		near_nodes_size = 6,
-		near_nodes_vertical = 2,--4,
-		near_nodes_count = 1,
-		plantlife_limit = -0.9,
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = {
+		"ethereal:grove_dirt",
+		"default:dirt_with_rainforest_litter",
+		"bambooforest:dirt_with_bamboo",
 	},
-	abstract_ferns.grow_giant_tree_fern
-	)
-end
-
--- for oases & tropical beaches
-if abstract_ferns.config.enable_giant_treeferns_in_oases == true then
-	biome_lib.register_on_generate({
-		surface = {
-			"default:sand"--,
-			--"default:desert_sand"
-		},
-		max_count = 10,--27,
-		rarity = 90,
-		seed_diff = 329,
-		neighbors = {"default:desert_sand"},
-		ncount = 1,
-		min_elevation = 1,
-		near_nodes = {"default:water_source", "default:river_water_source"},
-		near_nodes_size = 2,
-		near_nodes_vertical = 1,
-		near_nodes_count = 1,
-		plantlife_limit = -0.9,
-		humidity_max = -1.0,
-		humidity_min = 1.0,
-		temp_max = -1.0,
-		temp_min = 1.0,
+	sidelen = 80,
+	fill_ratio = 0.00045,
+	biomes = {
+		"junglee",
+		"grove",
 	},
-	abstract_ferns.grow_giant_tree_fern
-	)
-end
+	y_min = 3,
+	y_max = 31000,
+	place_offset_y = 1,
+	schematic = minetest.get_modpath("ferns") .. "/schematics/tree_fern.mts",
+	flags = "place_center_x, place_center_z,force_placement",
+})
