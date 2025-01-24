@@ -340,7 +340,7 @@ minetest.register_decoration({
 	sidelen = 80,
 	fill_ratio = 0.00045,
 	biomes = {
-		"junglee",
+		"rainforest",
 		"grove",
 	},
 	y_min = 3,
